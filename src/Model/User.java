@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Model;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ *
+ * @author Sarah
+ */
+public abstract class User
+{
+    String firstName;
+    String lastName;
+    String username;
+    String password;
+
+    public User(String firstName, String lastName, String username, String password)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public void updatePassword(String newPassword)
+    {
+        String errorMsg = "New password must be at least eight characters and contain at least one number and one special character (!@#$%^&*).";
+        if (newPassword.length() >= 8)
+        {
+            Pattern num = Pattern.compile("[0123456789]");
+            Pattern specialChar = Pattern.compile("[!@#$%^&*]");
+            Matcher hasNum = num.matcher(newPassword);
+            Matcher hasSpecial = specialChar.matcher(newPassword);
+            Boolean numCheck = hasNum.find();
+            Boolean specialCheck = hasSpecial.find();
+
+            if (numCheck && specialCheck)
+            {
+                this.password = newPassword;
+            } else
+            {
+                System.out.println(errorMsg);
+                if (!numCheck)
+                {
+                    System.out.print("Add a number. ");
+                }
+                if (!specialCheck)
+                {
+                    System.out.print("Add a special character. ");
+                }
+
+            }
+        } else
+        {
+            System.out.println(errorMsg);
+            System.out.println("Password is too short.");
+        }
+    }
+    public abstract void setUsername(String username);
+}
