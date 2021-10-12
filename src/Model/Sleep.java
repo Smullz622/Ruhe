@@ -31,7 +31,7 @@ public class Sleep
         this.sleepMinutes = 0;
         totalTime = 0;
     }
-
+//converts time to minutes
     public int convertTime(int sleepHours, int sleepMinutes)
     {
         int time = (sleepHours*60) + sleepMinutes;
@@ -42,7 +42,7 @@ public class Sleep
     {
         return totalTime;
     }
-    
+//sets total time in minutes
     public void setTotalTime(int hours, int minutes)
     {
         totalTime = convertTime(hours, minutes);
