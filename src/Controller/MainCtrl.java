@@ -5,11 +5,21 @@
  */
 package Controller;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Sarah
  */
 public class MainCtrl
 {
+
+    public void userNameTextActionPerformed(ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    public void loginButtonActionPerformed(ActionEvent evt) {
+        // TODO add your handling code here:
+    }
     
 }
