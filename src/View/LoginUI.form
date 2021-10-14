@@ -52,8 +52,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="userNameText" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                           <Component id="createUserButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="loginButton" min="-2" pref="67" max="-2" attributes="0"/>
                           <Component id="passwordText" min="-2" pref="215" max="-2" attributes="0"/>
+                          <Component id="loginButton" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">

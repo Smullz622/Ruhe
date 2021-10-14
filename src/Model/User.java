@@ -27,6 +27,14 @@ public abstract class User
         this.password = password;
     }
 
+    public boolean passwordMatch(String s1, String s2){
+        boolean match = false;
+        if (s1.equals(s2)){
+            match = true;
+        }
+        return match;
+        
+    }
     public void updatePassword(String newPassword)
     {
         String errorMsg = "New password must be at least eight characters and contain at least one number and one special character (!@#$%^&*).";
