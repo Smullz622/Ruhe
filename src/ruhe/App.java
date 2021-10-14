@@ -5,6 +5,7 @@
  */
 package ruhe;
 
+import Model.Login;
 import Model.PersonalUser;
 import Model.User;
 
@@ -20,8 +21,7 @@ public class App
      */
     public static void main(String[] args)
     {
-        User test = new PersonalUser("Sarah", "Smullz", "Smullz622", "T3stP@ss", "None");
-        test.updatePassword("testpass6%");
+        
     }
     
 }

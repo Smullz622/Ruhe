@@ -5,32 +5,58 @@
  */
 package Model;
 
+import java.util.HashMap;
+
 /**
  *
  * @author apl5638
  */
-public abstract class Login {
+public class Login
+{
 
-         Hashmap validUsers;
-         Account validatesUser;
+    private HashMap<String, User> validUserMap = new HashMap<String, User>();
 
-    private static class Hashmap {
-
-        public Hashmap() {
-        }
-    }
-
-    private static class Account {
-
-        public Account() {
-        }
+    public Login()
+    {
+        createTestMap();
     }
     
-    public void validateUsername(){
-        
+    
+    public boolean validateUsername(String inputUsername)
+    {
+        boolean valid = false;
+        if (validUserMap.containsKey(inputUsername))
+        {
+            valid = true;
+        }
+        return valid;
+    }
+
+    public boolean validatePassword(String inputUsername, String inputPassword)
+    {
+        boolean valid = false;
+        if (validateUsername(inputUsername)==true)
+        {
+            if (validUserMap.get(inputUsername).password.equals(inputPassword))
+            {
+                valid = true;
+            }
+        }
+        return valid;
+    }
+
+    private void createTestMap()
+    {
+        User test1 = new PersonalUser("Hermione", "Granger", "ReadingIsCool", "SP@W4ever", "improve sleep");
+        User test2 = new PersonalUser("Harry", "Potter", "BoyWhoLived", "Gryffind0r!", "monitor mood");
+        User test3 = new PersonalUser("Ron", "Weasley", "WeasleyIsOurKing", "C@nnons7", "improve homework habits");
+                
+        validUserMap.put("ReadingIsCool", test1);
+        validUserMap.put("BoyWhoLived", test2);
+        validUserMap.put("WeasleyIsOurKing", test3);
     }
     
-    public void validatePassword (){
-        
+    public HashMap getValidUsers(){
+        return validUserMap;
     }
 }
