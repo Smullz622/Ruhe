@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import View.MainUI;
 import java.awt.event.ActionEvent;
 
 /**
@@ -13,6 +14,13 @@ import java.awt.event.ActionEvent;
  */
 public class MainCtrl
 {
+    MainUI homepage = new MainUI();
+
+    public MainCtrl()
+    {
+        homepage.setVisible(true);
+    }
+    
 
     public void userNameTextActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
@@ -20,6 +28,11 @@ public class MainCtrl
 
     public void loginButtonActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
+    }
+    
+    public MainUI getHomepage()
+    {
+        return homepage;
     }
     
 }

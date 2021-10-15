@@ -26,7 +26,7 @@ public abstract class User
         this.username = username;
         this.password = password;
     }
-
+    
     public boolean passwordMatch(String s1, String s2){
         boolean match = false;
         if (s1.equals(s2)){

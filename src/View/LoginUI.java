@@ -16,6 +16,7 @@ public class LoginUI extends javax.swing.JFrame {
      */
     public LoginUI() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -179,15 +180,15 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createUserButton;
+    public javax.swing.JButton createUserButton;
     private javax.swing.JLabel existingUsersLabel;
-    private javax.swing.JButton loginButton;
+    public javax.swing.JButton loginButton;
     private javax.swing.JLabel mindfulnessLabel;
     private javax.swing.JLabel newUserLabel;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField passwordText;
+    public javax.swing.JTextField passwordText;
     private javax.swing.JLabel ruheLabel;
     private javax.swing.JLabel userNameLabel;
-    private javax.swing.JTextField userNameText;
+    public javax.swing.JTextField userNameText;
     // End of variables declaration//GEN-END:variables
 }

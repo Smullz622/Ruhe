@@ -5,9 +5,14 @@
  */
 package ruhe;
 
+import Controller.LoginCtrl;
+import Controller.MainCtrl;
+import Model.Adult;
 import Model.Login;
+import Model.Minor;
 import Model.PersonalUser;
 import Model.User;
+import View.MainUI;
 
 /**
  *
@@ -21,6 +26,13 @@ public class App
      */
     public static void main(String[] args)
     {
+        LoginCtrl login = new LoginCtrl();
+        MainCtrl main = new MainCtrl();
+        while (login.getValidLogin()==false)
+        {
+           main.getHomepage().setVisible(false);
+        }
+        main.getHomepage().setVisible(true);
         
     }
     
