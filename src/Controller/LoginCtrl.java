@@ -47,6 +47,10 @@ public class LoginCtrl
                     loginUI.setVisible(false);
                     validLogin = true;
                 }
+                else
+                {
+                    loginUI.getErrorMsg().setText("Incorrect username and/or password");
+                }
             }
             
         });
@@ -77,6 +81,7 @@ public class LoginCtrl
             public void actionPerformed(ActionEvent e)
             {
                 loginUI.setVisible(true);
+                loginUI.getErrorMsg().setText("");
                 userUI.setVisible(false);
             }
             
@@ -115,7 +120,7 @@ public class LoginCtrl
                 }   
                 else if (!newUser.updatePassword(password2))
                 {
-                    userUI.getConfirmationMsg().setText("Password must be at least eight characters and contain at least one number and one special character (!@#$%^&*).");
+                    userUI.getConfirmationMsg().setText("Password must contain at least 8 characters, a number, and a special character.");
                 }                
                 else{
                     login.getValidUsers().put(username, newUser);

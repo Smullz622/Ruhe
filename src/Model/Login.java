@@ -47,9 +47,9 @@ public class Login
 
     private void createTestMap()
     {
-        User test1 = new PersonalUser("Hermione", "Granger", "ReadingIsCool", "SP@W4ever", 9, 19, 1979, "improve sleep");
-        User test2 = new PersonalUser("Harry", "Potter", "BoyWhoLived", "Gryffind0r!", 7, 31, 1980, "monitor mood");
-        User test3 = new PersonalUser("Ron", "Weasley", "WeasleyIsOurKing", "C@nnons7", 3, 1, 1980, "improve homework habits");
+        User test1 = new PersonalUser("Hermione", "Granger", "ReadingIsCool", "SP@W4ever", 9, 19, 1979, "hgranger@hogwarts.edu");
+        User test2 = new PersonalUser("Harry", "Potter", "BoyWhoLived", "Gryffind0r!", 7, 31, 1980, "hpotter@hogwarts.edu");
+        User test3 = new PersonalUser("Ron", "Weasley", "WeasleyIsOurKing", "C@nnons7", 3, 1, 1980, "rweasley@hogwarts.edu");
                 
         validUserMap.put("ReadingIsCool", test1);
         validUserMap.put("BoyWhoLived", test2);
