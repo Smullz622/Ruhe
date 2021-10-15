@@ -25,7 +25,8 @@ public class UserUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         monthSpinner = new javax.swing.JSpinner();
         newUsersLabel = new javax.swing.JLabel();
@@ -47,6 +48,8 @@ public class UserUI extends javax.swing.JFrame {
         enterNewUserBtn = new javax.swing.JButton();
         usernameText = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+        confirmationMsg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Create new account");
@@ -63,8 +66,10 @@ public class UserUI extends javax.swing.JFrame {
 
         birthdayYearLabel.setText("year:");
 
-        lastNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lastNameText.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lastNameTextActionPerformed(evt);
             }
         });
@@ -79,58 +84,72 @@ public class UserUI extends javax.swing.JFrame {
 
         usernameLabel.setText("Create username:");
 
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        confirmationMsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        confirmationMsg.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(reenterPasswordLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(reenterPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(enterNewUserBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(newUsersLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(confirmationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newUsersLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(BirthdayMonthLabel)
+                                            .addComponent(lastNameLabel)
+                                            .addComponent(firstNameLabel)
+                                            .addComponent(emailLabel))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(BirthdayDayLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(birthdayYearLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lastNameText)
+                                            .addComponent(firstNameText)
+                                            .addComponent(emailText))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(BirthdayMonthLabel)
-                                        .addComponent(lastNameLabel)
-                                        .addComponent(firstNameLabel)
-                                        .addComponent(emailLabel))
+                                        .addComponent(backBtn)
+                                        .addComponent(reenterPasswordLabel))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(BirthdayDayLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(4, 4, 4)
-                                            .addComponent(birthdayYearLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(firstNameText)
-                                        .addComponent(lastNameText)
-                                        .addComponent(emailText))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(createPasswordLabel)
-                            .addComponent(usernameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameText)
-                            .addComponent(createPasswordText, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(reenterPasswordText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(enterNewUserBtn, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(createPasswordLabel)
+                                .addComponent(usernameLabel))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(usernameText)
+                                .addComponent(createPasswordText)))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {createPasswordText, emailText, firstNameText, lastNameText, reenterPasswordText});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -169,8 +188,12 @@ public class UserUI extends javax.swing.JFrame {
                     .addComponent(reenterPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reenterPasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterNewUserBtn)
-                .addGap(17, 17, 17))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterNewUserBtn)
+                    .addComponent(backBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmationMsg)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {createPasswordText, emailText, firstNameText, lastNameText, reenterPasswordText});
@@ -181,6 +204,11 @@ public class UserUI extends javax.swing.JFrame {
     private void lastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_backBtnActionPerformed
+    {//GEN-HEADEREND:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,25 +254,32 @@ public class UserUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BirthdayDayLabel;
     private javax.swing.JLabel BirthdayMonthLabel;
+    public javax.swing.JButton backBtn;
     private javax.swing.JLabel birthdayYearLabel;
+    private javax.swing.JLabel confirmationMsg;
     private javax.swing.JLabel createPasswordLabel;
-    private javax.swing.JTextField createPasswordText;
-    private javax.swing.JSpinner daySpinner;
+    public javax.swing.JTextField createPasswordText;
+    public javax.swing.JSpinner daySpinner;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailText;
-    private javax.swing.JButton enterNewUserBtn;
+    public javax.swing.JTextField emailText;
+    public javax.swing.JButton enterNewUserBtn;
     private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JTextField firstNameText;
+    public javax.swing.JTextField firstNameText;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField lastNameText;
-    private javax.swing.JSpinner monthSpinner;
+    public javax.swing.JTextField lastNameText;
+    public javax.swing.JSpinner monthSpinner;
     private javax.swing.JLabel newUsersLabel;
     private javax.swing.JLabel reenterPasswordLabel;
-    private javax.swing.JTextField reenterPasswordText;
+    public javax.swing.JTextField reenterPasswordText;
     private javax.swing.JLabel usernameLabel;
-    private javax.swing.JTextField usernameText;
-    private javax.swing.JSpinner yearSpinner;
+    public javax.swing.JTextField usernameText;
+    public javax.swing.JSpinner yearSpinner;
     // End of variables declaration//GEN-END:variables
+
+public javax.swing.JLabel getConfirmationMsg()
+{
+    return confirmationMsg;
+}
 }
 
 

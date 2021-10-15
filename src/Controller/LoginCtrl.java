@@ -6,7 +6,10 @@
 package Controller;
 
 import Model.Login;
+import Model.PersonalUser;
+import Model.User;
 import View.LoginUI;
+import View.UserUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,14 +20,17 @@ import java.awt.event.ActionListener;
 public class LoginCtrl
 {
     LoginUI loginUI;
+    UserUI userUI;
     Login login;
     boolean validLogin = false;
 
     public LoginCtrl()
     {
         loginUI = new LoginUI();
+        userUI = new UserUI();
         login = new Login();
         loginButtons();
+        
     }
 
     public void loginButtons()
@@ -44,11 +50,80 @@ public class LoginCtrl
             }
             
         });
+        
+        loginUI.createUserButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                loginUI.setVisible(false);
+                userUI.setVisible(true);
+                userDetailButtons();
+            }
+            
+        });
     }
     
     public boolean getValidLogin()
     {
         return validLogin;
+    }
+
+    private void userDetailButtons()
+    {
+        userUI.backBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                loginUI.setVisible(true);
+                userUI.setVisible(false);
+            }
+            
+        }
+        );
+        
+        userUI.enterNewUserBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                boolean valid = false;
+                String firstName = userUI.firstNameText.getText();
+                String lastName = userUI.lastNameText.getText();
+                int birthMonth = (Integer) userUI.monthSpinner.getValue();
+                int birthDay = (Integer) userUI.daySpinner.getValue();
+                int birthYear = (Integer) userUI.yearSpinner.getValue();
+                String username = userUI.usernameText.getText();
+                String password1 = userUI.createPasswordText.getText();
+                String password2 = userUI.reenterPasswordText.getText();
+                String email = userUI.emailText.getText();
+                
+                User newUser = new PersonalUser(firstName, lastName, username, password1, birthMonth, birthDay, birthYear, email);
+                             
+                if (login.getValidUsers().containsKey(username))
+                {
+                    userUI.getConfirmationMsg().setText("Username already exists. Try again.");
+                }
+                else if (!newUser.passwordMatch(password1, password2))
+                {
+                    userUI.getConfirmationMsg().setText("Passwords do not match");
+                }
+                else if (!newUser.setUsername(username))
+                {
+                    userUI.getConfirmationMsg().setText("Username must be at least 6 characters.");
+                }   
+                else if (!newUser.updatePassword(password2))
+                {
+                    userUI.getConfirmationMsg().setText("Password must be at least eight characters and contain at least one number and one special character (!@#$%^&*).");
+                }                
+                else{
+                    login.getValidUsers().put(username, newUser);
+                    userUI.getConfirmationMsg().setText("Account created successfully");
+                }
+            }            
+            
+        });
     }
     
     

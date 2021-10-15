@@ -14,30 +14,29 @@ import java.util.regex.Pattern;
  */
 public class PersonalUser extends User implements DateConversionInterface
 {
-    private String goals;
+    private String email;
     private int birthYear;
     private int birthMonth;
     private int birthDay;
     String birthDate;
 
-    public PersonalUser(String firstName, String lastName, String username, String password, int birthMonth, int birthDay, int birthYear, String goals)
+    public PersonalUser(String firstName, String lastName, String username, String password, int birthMonth, int birthDay, int birthYear, String email)
     {
         super(firstName, lastName, username, password);
-        this.goals = goals;
+        this.email = email;
         this.birthDate = dateToString(birthDay, birthMonth, birthYear);        
     }
     
     @Override
-    public void setUsername(String newUsername)
+    public boolean setUsername(String newUsername)
     {
+        boolean check = false;
         if (newUsername.length() >= 6)
         {
             this.username = newUsername;
+            check = true;
         }
-        else
-        {
-            System.out.print("Username must be at least six characters");
-        }
+        return check;
     }    
 
     @Override
