@@ -290,6 +290,19 @@ public javax.swing.JLabel getConfirmationMsg()
 {
     return confirmationMsg;
 }
+
+public void reset()
+{
+    firstNameText.setText("");
+    lastNameText.setText("");
+    monthSpinner.setValue(0);
+    daySpinner.setValue(0);
+    yearSpinner.setValue(0);
+    emailText.setText("");
+    usernameText.setText("");
+    reenterPasswordText.setText("");
+    createPasswordText.setText("");
+}
 }
 
 

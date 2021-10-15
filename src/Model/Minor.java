@@ -8,7 +8,7 @@ package Model;
 
 /**
  *
- * @author apl5638
+ * @author Sarah
  */
 public class Minor extends PersonalUser {
 

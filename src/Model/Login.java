@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author apl5638
+ * @author Sarah
  */
 public class Login
 {

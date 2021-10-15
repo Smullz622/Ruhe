@@ -77,6 +77,10 @@ public abstract class User
         }
         return check;
     }
+    
+    public String getUsername(){
+        return username;
+    }
 
     public abstract boolean setUsername(String username);
 }

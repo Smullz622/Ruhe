@@ -61,7 +61,8 @@ public class LoginCtrl
             public void actionPerformed(ActionEvent e)
             {
                 loginUI.setVisible(false);
-                userUI.setVisible(true);
+                userUI.reset();
+                userUI.setVisible(true);               
                 userDetailButtons();
             }
             
@@ -80,8 +81,8 @@ public class LoginCtrl
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                loginUI.setVisible(true);
-                loginUI.getErrorMsg().setText("");
+                loginUI.setVisible(true);                
+                loginUI.reset();
                 userUI.setVisible(false);
             }
             
@@ -106,7 +107,7 @@ public class LoginCtrl
                 
                 User newUser = new PersonalUser(firstName, lastName, username, password1, birthMonth, birthDay, birthYear, email);
                              
-                if (login.getValidUsers().containsKey(username))
+                if (login.getValidUsers().containsKey(newUser.getUsername()))
                 {
                     userUI.getConfirmationMsg().setText("Username already exists. Try again.");
                 }

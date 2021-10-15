@@ -8,7 +8,7 @@ package Model;
 
 /**
  *
- * @author apl5638
+ * @author Sarah
  */
 public class Senior extends PersonalUser{
  public Senior (String firstName, String lastName, String username, String password, int birthMonth, int birthDay, int birthYear, String goals)

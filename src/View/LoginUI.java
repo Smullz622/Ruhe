@@ -210,4 +210,11 @@ public javax.swing.JLabel getErrorMsg()
 {
     return errorMsg;
 }
+
+public void reset()
+{
+    userNameText.setText("");
+    passwordText.setText("");
+    errorMsg.setText("");
+}
 }
