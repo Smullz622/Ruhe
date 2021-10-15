@@ -5,17 +5,27 @@
  */
 package View;
 
+import javax.swing.JSpinner;
+
 /**
  *
  * @author conne
  */
-public class UserUI extends javax.swing.JFrame {
-    
+public class UserUI extends javax.swing.JFrame
+{
+
     /**
      * Creates new form UserUI
      */
-    public UserUI() {
+    public UserUI()
+    {
         initComponents();
+        JSpinner.NumberEditor yearEditor = new JSpinner.NumberEditor(yearSpinner, "#");
+        JSpinner.NumberEditor monthEditor = new JSpinner.NumberEditor(monthSpinner, "#");
+        JSpinner.NumberEditor dayEditor = new JSpinner.NumberEditor(daySpinner, "#");
+        daySpinner.setEditor(dayEditor);
+        yearSpinner.setEditor(yearEditor);
+        monthSpinner.setEditor(monthEditor);
     }
 
     /**
@@ -55,6 +65,8 @@ public class UserUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Create new account");
 
+        monthSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+
         newUsersLabel.setText("New Users");
 
         firstNameLabel.setText("First Name:");
@@ -66,6 +78,10 @@ public class UserUI extends javax.swing.JFrame {
         BirthdayDayLabel.setText("day:");
 
         birthdayYearLabel.setText("year:");
+
+        yearSpinner.setModel(new javax.swing.SpinnerNumberModel(2021, 1920, 2021, 1));
+
+        daySpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
         lastNameText.addActionListener(new java.awt.event.ActionListener()
         {
@@ -222,28 +238,35 @@ public class UserUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        
-       
+    public static void main(String args[])
+    {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -252,9 +275,11 @@ public class UserUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 new UserUI().setVisible(true);
             }
         });
@@ -286,23 +311,24 @@ public class UserUI extends javax.swing.JFrame {
     public javax.swing.JSpinner yearSpinner;
     // End of variables declaration//GEN-END:variables
 
-public javax.swing.JLabel getConfirmationMsg()
-{
-    return confirmationMsg;
-}
+    public javax.swing.JLabel getConfirmationMsg()
+    {
+        return confirmationMsg;
+    }
 
-public void reset()
-{
-    firstNameText.setText("");
-    lastNameText.setText("");
-    monthSpinner.setValue(0);
-    daySpinner.setValue(0);
-    yearSpinner.setValue(0);
-    emailText.setText("");
-    usernameText.setText("");
-    reenterPasswordText.setText("");
-    createPasswordText.setText("");
+    public void reset()
+    {
+//    JSpinner.NumberEditor yearEditor = new JSpinner.NumberEditor(yearSpinner, "#");
+//    JSpinner.NumberEditor monthEditor = new JSpinner.NumberEditor(monthSpinner, "#");
+//    JSpinner.NumberEditor dayEditor = new JSpinner.NumberEditor(daySpinner, "#");
+        firstNameText.setText("");
+        lastNameText.setText("");
+        monthSpinner.setValue(1);
+        daySpinner.setValue(1);
+        yearSpinner.setValue(2021);
+        emailText.setText("");
+        usernameText.setText("");
+        reenterPasswordText.setText("");
+        createPasswordText.setText("");
+    }
 }
-}
-
-

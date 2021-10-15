@@ -24,6 +24,9 @@ public class PersonalUser extends User implements DateConversionInterface
     {
         super(firstName, lastName, username, password);
         this.email = email;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
         this.birthDate = dateToString(birthDay, birthMonth, birthYear);        
     }
     
@@ -45,4 +48,12 @@ public class PersonalUser extends User implements DateConversionInterface
         String date =  String.valueOf(year) + "/" + String.valueOf(month) + "/" + String.valueOf(day);
         return date;
     }
+
+    @Override
+    public String toString()
+    {
+        return "PersonalUser{" + "email=" + email + ", birthYear=" + birthYear + ", birthMonth=" + birthMonth + ", birthDay=" + birthDay + ", birthDate=" + birthDate + '}';
+    }
+    
+    
 }
