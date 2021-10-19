@@ -16,6 +16,7 @@ public class LoginUI extends javax.swing.JFrame {
      */
     public LoginUI() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -25,8 +26,10 @@ public class LoginUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
+        jLabel1 = new javax.swing.JLabel();
         ruheLabel = new javax.swing.JLabel();
         mindfulnessLabel = new javax.swing.JLabel();
         userNameLabel = new javax.swing.JLabel();
@@ -37,6 +40,9 @@ public class LoginUI extends javax.swing.JFrame {
         createUserButton = new javax.swing.JButton();
         newUserLabel = new javax.swing.JLabel();
         existingUsersLabel = new javax.swing.JLabel();
+        errorMsg = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -47,8 +53,10 @@ public class LoginUI extends javax.swing.JFrame {
 
         userNameLabel.setText("User Name:");
 
-        userNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        userNameText.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 userNameTextActionPerformed(evt);
             }
         });
@@ -56,8 +64,10 @@ public class LoginUI extends javax.swing.JFrame {
         passwordLabel.setText("Password:");
 
         loginButton.setText("Login");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 loginButtonActionPerformed(evt);
             }
         });
@@ -67,6 +77,9 @@ public class LoginUI extends javax.swing.JFrame {
         newUserLabel.setText("New User?");
 
         existingUsersLabel.setText("Existing Users Login");
+
+        errorMsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorMsg.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,12 +107,15 @@ public class LoginUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(createUserButton)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(existingUsersLabel)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addComponent(existingUsersLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(errorMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +140,9 @@ public class LoginUI extends javax.swing.JFrame {
                     .addComponent(passwordLabel))
                 .addGap(18, 18, 18)
                 .addComponent(loginButton)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorMsg)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,15 +192,29 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createUserButton;
+    public javax.swing.JButton createUserButton;
+    private javax.swing.JLabel errorMsg;
     private javax.swing.JLabel existingUsersLabel;
-    private javax.swing.JButton loginButton;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton loginButton;
     private javax.swing.JLabel mindfulnessLabel;
     private javax.swing.JLabel newUserLabel;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField passwordText;
+    public javax.swing.JTextField passwordText;
     private javax.swing.JLabel ruheLabel;
     private javax.swing.JLabel userNameLabel;
-    private javax.swing.JTextField userNameText;
+    public javax.swing.JTextField userNameText;
     // End of variables declaration//GEN-END:variables
+
+public javax.swing.JLabel getErrorMsg()
+{
+    return errorMsg;
+}
+
+public void reset()
+{
+    userNameText.setText("");
+    passwordText.setText("");
+    errorMsg.setText("");
+}
 }

@@ -12,29 +12,48 @@ import java.util.regex.Pattern;
  *
  * @author Sarah
  */
-public class PersonalUser extends User
+public class PersonalUser extends User implements DateConversionInterface
 {
-    private String goals;
+    private String email;
+    private int birthYear;
+    private int birthMonth;
+    private int birthDay;
+    String birthDate;
 
-    public PersonalUser(String firstName, String lastName, String username, String password, String goals)
+    public PersonalUser(String firstName, String lastName, String username, String password, int birthMonth, int birthDay, int birthYear, String email)
     {
         super(firstName, lastName, username, password);
-        this.goals = goals;
+        this.email = email;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
+        this.birthDate = dateToString(birthDay, birthMonth, birthYear);        
     }
     
     @Override
-    public void setUsername(String newUsername)
+    public boolean setUsername(String newUsername)
     {
-/* There will also be a validate username method in Login Class which controls all user credentials.
- * That method will need to be called on all username changes to make sure it is unique.
- */
+        boolean check = false;
         if (newUsername.length() >= 6)
         {
             this.username = newUsername;
+            check = true;
         }
-        else
-        {
-            System.out.print("Username must be at least six characters");
-        }
+        return check;
     }    
+
+    @Override
+    public String dateToString(int day, int month, int year)
+    {
+        String date =  String.valueOf(year) + "/" + String.valueOf(month) + "/" + String.valueOf(day);
+        return date;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "PersonalUser{" + "email=" + email + ", birthYear=" + birthYear + ", birthMonth=" + birthMonth + ", birthDay=" + birthDay + ", birthDate=" + birthDate + '}';
+    }
+    
+    
 }

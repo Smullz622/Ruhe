@@ -5,17 +5,27 @@
  */
 package View;
 
+import javax.swing.JSpinner;
+
 /**
  *
  * @author conne
  */
-public class UserUI extends javax.swing.JFrame {
-    
+public class UserUI extends javax.swing.JFrame
+{
+
     /**
      * Creates new form UserUI
      */
-    public UserUI() {
+    public UserUI()
+    {
         initComponents();
+        JSpinner.NumberEditor yearEditor = new JSpinner.NumberEditor(yearSpinner, "#");
+        JSpinner.NumberEditor monthEditor = new JSpinner.NumberEditor(monthSpinner, "#");
+        JSpinner.NumberEditor dayEditor = new JSpinner.NumberEditor(daySpinner, "#");
+        daySpinner.setEditor(dayEditor);
+        yearSpinner.setEditor(yearEditor);
+        monthSpinner.setEditor(monthEditor);
     }
 
     /**
@@ -25,7 +35,8 @@ public class UserUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         monthSpinner = new javax.swing.JSpinner();
         newUsersLabel = new javax.swing.JLabel();
@@ -47,9 +58,14 @@ public class UserUI extends javax.swing.JFrame {
         enterNewUserBtn = new javax.swing.JButton();
         usernameText = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+        confirmationMsg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Create new account");
+
+        monthSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         newUsersLabel.setText("New Users");
 
@@ -57,14 +73,20 @@ public class UserUI extends javax.swing.JFrame {
 
         lastNameLabel.setText("Last Name:");
 
-        BirthdayMonthLabel.setText("Birthday month:");
+        BirthdayMonthLabel.setText("month:");
 
         BirthdayDayLabel.setText("day:");
 
         birthdayYearLabel.setText("year:");
 
-        lastNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        yearSpinner.setModel(new javax.swing.SpinnerNumberModel(2021, 1920, 2021, 1));
+
+        daySpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+
+        lastNameText.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lastNameTextActionPerformed(evt);
             }
         });
@@ -79,58 +101,79 @@ public class UserUI extends javax.swing.JFrame {
 
         usernameLabel.setText("Create username:");
 
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        confirmationMsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        confirmationMsg.setText(" ");
+
+        jLabel1.setText("Birthday:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confirmationMsg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(backBtn)
+                                .addGap(235, 235, 235)
+                                .addComponent(enterNewUserBtn))
+                            .addComponent(newUsersLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lastNameLabel)
+                                            .addComponent(firstNameLabel)
+                                            .addComponent(emailLabel)
+                                            .addComponent(reenterPasswordLabel))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(15, 15, 15)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(firstNameText)
+                                    .addComponent(lastNameText)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(BirthdayMonthLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(BirthdayDayLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(birthdayYearLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(emailText)
+                                    .addComponent(reenterPasswordText, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(reenterPasswordLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(reenterPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(enterNewUserBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(newUsersLabel)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(BirthdayMonthLabel)
-                                        .addComponent(lastNameLabel)
-                                        .addComponent(firstNameLabel)
-                                        .addComponent(emailLabel))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(BirthdayDayLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(4, 4, 4)
-                                            .addComponent(birthdayYearLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(firstNameText)
-                                        .addComponent(lastNameText)
-                                        .addComponent(emailText))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(createPasswordLabel)
-                            .addComponent(usernameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameText)
-                            .addComponent(createPasswordText, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                                .addComponent(usernameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(createPasswordLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(createPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(52, 52, 52))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {createPasswordText, emailText, firstNameText, lastNameText, reenterPasswordText});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -151,7 +194,8 @@ public class UserUI extends javax.swing.JFrame {
                     .addComponent(birthdayYearLabel)
                     .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(daySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,8 +213,12 @@ public class UserUI extends javax.swing.JFrame {
                     .addComponent(reenterPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reenterPasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterNewUserBtn)
-                .addGap(17, 17, 17))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterNewUserBtn)
+                    .addComponent(backBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {createPasswordText, emailText, firstNameText, lastNameText, reenterPasswordText});
@@ -182,31 +230,43 @@ public class UserUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_backBtnActionPerformed
+    {//GEN-HEADEREND:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        
-       
+    public static void main(String args[])
+    {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(UserUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -215,9 +275,11 @@ public class UserUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 new UserUI().setVisible(true);
             }
         });
@@ -226,25 +288,47 @@ public class UserUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BirthdayDayLabel;
     private javax.swing.JLabel BirthdayMonthLabel;
+    public javax.swing.JButton backBtn;
     private javax.swing.JLabel birthdayYearLabel;
+    private javax.swing.JLabel confirmationMsg;
     private javax.swing.JLabel createPasswordLabel;
-    private javax.swing.JTextField createPasswordText;
-    private javax.swing.JSpinner daySpinner;
+    public javax.swing.JTextField createPasswordText;
+    public javax.swing.JSpinner daySpinner;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailText;
-    private javax.swing.JButton enterNewUserBtn;
+    public javax.swing.JTextField emailText;
+    public javax.swing.JButton enterNewUserBtn;
     private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JTextField firstNameText;
+    public javax.swing.JTextField firstNameText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField lastNameText;
-    private javax.swing.JSpinner monthSpinner;
+    public javax.swing.JTextField lastNameText;
+    public javax.swing.JSpinner monthSpinner;
     private javax.swing.JLabel newUsersLabel;
     private javax.swing.JLabel reenterPasswordLabel;
-    private javax.swing.JTextField reenterPasswordText;
+    public javax.swing.JTextField reenterPasswordText;
     private javax.swing.JLabel usernameLabel;
-    private javax.swing.JTextField usernameText;
-    private javax.swing.JSpinner yearSpinner;
+    public javax.swing.JTextField usernameText;
+    public javax.swing.JSpinner yearSpinner;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JLabel getConfirmationMsg()
+    {
+        return confirmationMsg;
+    }
+
+    public void reset()
+    {
+//    JSpinner.NumberEditor yearEditor = new JSpinner.NumberEditor(yearSpinner, "#");
+//    JSpinner.NumberEditor monthEditor = new JSpinner.NumberEditor(monthSpinner, "#");
+//    JSpinner.NumberEditor dayEditor = new JSpinner.NumberEditor(daySpinner, "#");
+        firstNameText.setText("");
+        lastNameText.setText("");
+        monthSpinner.setValue(1);
+        daySpinner.setValue(1);
+        yearSpinner.setValue(2021);
+        emailText.setText("");
+        usernameText.setText("");
+        reenterPasswordText.setText("");
+        createPasswordText.setText("");
+    }
 }
-
-

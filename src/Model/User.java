@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
  */
 public abstract class User
 {
+
     String firstName;
     String lastName;
     String username;
@@ -27,8 +28,20 @@ public abstract class User
         this.password = password;
     }
 
-    public void updatePassword(String newPassword)
+    public boolean passwordMatch(String s1, String s2)
     {
+        boolean match = false;
+        if (s1.equals(s2))
+        {
+            match = true;
+        }
+        return match;
+
+    }
+
+    public boolean updatePassword(String newPassword)
+    {
+        boolean check = false;
         String errorMsg = "New password must be at least eight characters and contain at least one number and one special character (!@#$%^&*).";
         if (newPassword.length() >= 8)
         {
@@ -42,24 +55,32 @@ public abstract class User
             if (numCheck && specialCheck)
             {
                 this.password = newPassword;
-            } else
-            {
-                System.out.println(errorMsg);
-                if (!numCheck)
-                {
-                    System.out.print("Add a number. ");
-                }
-                if (!specialCheck)
-                {
-                    System.out.print("Add a special character. ");
-                }
-
+                check = true;
+//            } else
+//            {
+//                System.out.println(errorMsg);
+//                if (!numCheck)
+//                {
+//                    System.out.print("Add a number. ");
+//                }
+//                if (!specialCheck)
+//                {
+//                    System.out.print("Add a special character. ");
+//                }
+//
+//            }
+//        } else
+//        {
+//            System.out.println(errorMsg);
+//            System.out.println("Password is too short.");
             }
-        } else
-        {
-            System.out.println(errorMsg);
-            System.out.println("Password is too short.");
         }
+        return check;
     }
-    public abstract void setUsername(String username);
+    
+    public String getUsername(){
+        return username;
+    }
+
+    public abstract boolean setUsername(String username);
 }

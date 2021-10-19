@@ -5,8 +5,8 @@
  */
 package ruhe;
 
-import Model.PersonalUser;
-import Model.User;
+import Controller.LoginCtrl;
+import Controller.MainCtrl;
 
 /**
  *
@@ -20,8 +20,14 @@ public class App
      */
     public static void main(String[] args)
     {
-        User test = new PersonalUser("Sarah", "Smullz", "Smullz622", "T3stP@ss", "None");
-        test.updatePassword("testpass6%");
+        LoginCtrl login = new LoginCtrl();
+        MainCtrl main = new MainCtrl();
+        while (login.getValidLogin()==false)
+        {
+           main.getHomepage().setVisible(false);
+        }
+        main.getHomepage().setVisible(true);
+        
     }
     
 }
