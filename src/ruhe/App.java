@@ -7,12 +7,6 @@ package ruhe;
 
 import Controller.LoginCtrl;
 import Controller.MainCtrl;
-import Model.Adult;
-import Model.Login;
-import Model.Minor;
-import Model.PersonalUser;
-import Model.User;
-import View.MainUI;
 
 /**
  *
