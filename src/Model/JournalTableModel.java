@@ -18,6 +18,7 @@ public class JournalTableModel extends AbstractTableModel{
     
     public JournalTableModel(ArrayList<Journal> newJournalArrayList) {
         journalArrayList = newJournalArrayList;
+        testBranch();
     }
 
     @Override
@@ -45,6 +46,9 @@ public class JournalTableModel extends AbstractTableModel{
             case 1: return (Object) journalArrayList.get(row).getDescription().substring(0,25);
             default: return null;
         }
+    }
+    public void testBranch(){
+        System.out.println("this is a test branch");
     }
     
     public void setTable(ArrayList<Journal> journalList)
