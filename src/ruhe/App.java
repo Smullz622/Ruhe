@@ -26,7 +26,7 @@ public class App
         {
            main.getHomepage().setVisible(false);
         }
-        main.getHomepage().setVisible(true);
+        main.getHomepage().setVisible(true);     
         
     }
     
