@@ -13,10 +13,23 @@ public class Journal implements DateConversionInterface{
     private int month, day, year;
     private String date, description;
         
-    public Journal(String date, String description){
+    public Journal(int month, int day, int year, String description){
+    this.month = month;
+    this.day = day;
+    this.year = year;
     this.date = dateToString(day, month, year);
     this.description = description;
     }
+
+    public Journal()
+    {
+        this.month = 0;
+        this.day = 0;
+        this.year = 0;
+        this.date = "0/0/0000";
+        this.description = "Enter your text here......";
+    }   
+    
 
     public boolean validateEntry(){
         boolean valid = false;
@@ -111,5 +124,12 @@ public class Journal implements DateConversionInterface{
         this.description = description;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Journal{" + "month=" + month + ", day=" + day + ", year=" + year + ", date=" + date + ", description=" + description + '}';
+    }
+
+    
 
 }
