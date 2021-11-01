@@ -48,7 +48,6 @@ public class JournalEntryUI extends javax.swing.JFrame
     {
 
         jLabel1 = new javax.swing.JLabel();
-        homeBtn = new javax.swing.JButton();
         journalMainBtn = new javax.swing.JButton();
         monthSpinner = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
@@ -65,9 +64,14 @@ public class JournalEntryUI extends javax.swing.JFrame
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Journal Entry");
 
-        homeBtn.setText("Home");
-
-        journalMainBtn.setText("Journal Main");
+        journalMainBtn.setText("Back");
+        journalMainBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                journalMainBtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("month:");
 
@@ -92,16 +96,13 @@ public class JournalEntryUI extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(homeBtn)
-                        .addGap(38, 38, 38)
-                        .addComponent(journalMainBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(242, 242, 242)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel2)
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(journalMainBtn)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(monthSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
@@ -112,7 +113,7 @@ public class JournalEntryUI extends javax.swing.JFrame
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3)
@@ -122,9 +123,7 @@ public class JournalEntryUI extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(homeBtn)
-                    .addComponent(journalMainBtn))
+                .addComponent(journalMainBtn)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -144,6 +143,11 @@ public class JournalEntryUI extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void journalMainBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_journalMainBtnActionPerformed
+    {//GEN-HEADEREND:event_journalMainBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_journalMainBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,7 +197,6 @@ public class JournalEntryUI extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JSpinner daySpinner;
     public javax.swing.JTextArea entryBox;
-    public javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

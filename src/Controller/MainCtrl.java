@@ -32,6 +32,7 @@ public class MainCtrl //implements Initializable
 {
 
     MainUI homepage;
+    JournalController journalCtrl;
 //    @FXML
 //    private Button sleepBtn;
 //    @FXML
@@ -67,33 +68,37 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                journalCtrl = new JournalController();
                 homepage.setVisible(false);
-                JournalController journalCtrl = new JournalController();
-
+    
                 journalCtrl.mainUI.homeButton.addActionListener(new ActionListener()
                 {
                     @Override
                     public void actionPerformed(ActionEvent e)
-                    {
+                    {                        
                         journalCtrl.mainUI.setVisible(false);
-                        homepage.setVisible(true);                    
-                        
+                        homepage.setVisible(true);           
                     }
 
                 });
-               journalCtrl.entryUI.homeBtn.addActionListener(new ActionListener()
-               {
-                   @Override
-                   public void actionPerformed(ActionEvent e)
-                   {
-                       journalCtrl.entryUI.setVisible(false);
-                       homepage.setVisible(true);
-                   }
-                   
-               });
+//               journalCtrl.entryUI.homeBtn.addActionListener(new ActionListener()
+//               {
+//                   @Override
+//                   public void actionPerformed(ActionEvent e)
+//                   {
+//                       journalCtrl.entryUI.setVisible(false);
+//                       homepage.setVisible(true);
+//                   }
+//                   
+//               });
 
             }
         });
+       
 
     }
+     public JournalController getJournalCtrl()
+        {
+            return journalCtrl;
+        }
 }

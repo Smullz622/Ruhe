@@ -10,6 +10,7 @@ import Model.JournalMain;
 import Model.JournalTableModel;
 import View.JournalEntryUI;
 import View.JournalMainUI;
+import View.MainUI;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
@@ -52,9 +53,11 @@ public class JournalController
     JournalEntryUI entryUI;
     ArrayList<Journal> journalArrayList;
     int selectedRow;
+    boolean homepageVisible;
 
     public JournalController()
     {
+        homepageVisible = false;
         journalArrayList = journalMain.getTheJournalList();
         journalTable = new JournalTableModel(journalArrayList);
         mainUI = new JournalMainUI(this);
@@ -126,6 +129,15 @@ public class JournalController
             }
 
         });
+//        mainUI.homeButton.addActionListener(new ActionListener(){
+//            @Override
+//            public void actionPerformed(java.awt.event.ActionEvent e)
+//            {
+//                mainUI.setVisible(false);
+//                homepageVisible = true;
+//            }
+//            
+//        });
 
     }
 
@@ -165,7 +177,16 @@ public class JournalController
                 mainUI.repaint();
             }
 
-        });
+        });        
+//        entryUI.homeBtn.addActionListener(new ActionListener(){
+//            @Override
+//            public void actionPerformed(java.awt.event.ActionEvent e)
+//            {
+//                entryUI.setVisible(false);
+//                homepageVisible = true;
+//            }
+//            
+//        });
     }
 
     public JournalEntryUI getEntryUI()
@@ -173,6 +194,10 @@ public class JournalController
         return entryUI;
     }
 
+    public boolean getVisible()
+    {
+        return homepageVisible;
+    }
 //    public void start(Stage stage) 
 //    {
 //        Parent root = null;

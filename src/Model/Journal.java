@@ -23,10 +23,10 @@ public class Journal implements DateConversionInterface{
 
     public Journal()
     {
-        this.month = 0;
-        this.day = 0;
-        this.year = 0;
-        this.date = "0/0/0000";
+        this.month = 1;
+        this.day = 1;
+        this.year = 2021;
+        this.date = "1/1/2021";
         this.description = "Enter your text here......";
     }   
     
