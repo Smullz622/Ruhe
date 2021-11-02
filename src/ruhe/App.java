@@ -22,12 +22,12 @@ public class App
     {
         LoginCtrl login = new LoginCtrl();
         MainCtrl main = new MainCtrl();
-        while (login.getValidLogin()==false)
+        while (login.getValidLogin() == false)
         {
-           main.getHomepage().setVisible(false);
+            main.getHomepage().setVisible(false);
         }
-        main.getHomepage().setVisible(true);
-        
+        main.getHomepage().setVisible(true);      
+       
     }
-    
+
 }

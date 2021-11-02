@@ -30,8 +30,12 @@ public class JournalTableModel extends AbstractTableModel{
         return columnNames.length;
     }
     
-    public String getColumnNames(int col){
+    public String getColumnName(int col){
         return columnNames[col];
+    }
+    public String[] getColumnNames()
+    {
+        return columnNames;
     }
 
     @Override
@@ -41,6 +45,11 @@ public class JournalTableModel extends AbstractTableModel{
             case 1: return (Object) journalArrayList.get(row).getDescription().substring(0,25);
             default: return null;
         }
+    }
+    
+    public void setTable(ArrayList<Journal> journalList)
+    {
+        this.journalArrayList = journalList;
     }
     
 }
