@@ -19,7 +19,12 @@ public class HabitList {
     public HabitList(ArrayList<Habit> currentHabits, int currentIndex) {
     this. currentHabits = currentHabits;
     this.currentIndex = currentIndex;
-}
+    }
+    
+    public void addHabit(){
+        Habit newHabit = new Habit(h.getHabitName(), h.getDescription(), h.getChecks(), h.getSuccessPercent());
+        currentHabits.add(newHabit);
+    }
     public ArrayList testArrayList(){
         Habit water = new Habit("Water", "Drink 8 glasses of water a day", h.getChecks(), h.getSuccessPercent());
         Habit run = new Habit("Run", "Run 3 miles each day", h.getChecks(), h.getSuccessPercent());
