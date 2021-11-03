@@ -13,21 +13,25 @@ import java.util.ArrayList;
  */
 public class HabitList {
     private ArrayList<Habit> currentHabits;
-    private int currentIndex;
-    private Habit h = new Habit();
+   // private int currentIndex;
+    
     
     public HabitList(ArrayList<Habit> currentHabits, int currentIndex) {
     this. currentHabits = currentHabits;
-    this.currentIndex = currentIndex;
+   // this.currentIndex = currentIndex;
     }
     
-    public void addHabit(){
-        Habit newHabit = new Habit(h.getHabitName(), h.getDescription(), h.getChecks(), h.getSuccessPercent());
+    public void addHabit(String name, String description){
+        Habit newHabit = new Habit(name, description);
         currentHabits.add(newHabit);
     }
     public ArrayList testArrayList(){
-        Habit water = new Habit("Water", "Drink 8 glasses of water a day", h.getChecks(), h.getSuccessPercent());
-        Habit run = new Habit("Run", "Run 3 miles each day", h.getChecks(), h.getSuccessPercent());
+        Habit water = new Habit("Water", "Drink 8 glasses of water a day");
+        Habit run = new Habit("Run", "Run 3 miles each day");
+        Habit meditate = new Habit("Meditate", "Meditate for 30 minutes a day");
+        currentHabits.add(water);
+        currentHabits.add(run);
+        currentHabits.add(meditate);
         return currentHabits;
     }
     

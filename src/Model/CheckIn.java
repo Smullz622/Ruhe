@@ -14,7 +14,10 @@ public class CheckIn implements DateConversionInterface {
     private String date;
     private boolean completed;
     
-    public CheckIn(String date, boolean completed){
+    public CheckIn(int day, int month, int year, boolean completed){
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.date = dateToString(day, month, year);
         this.completed = completed;
     }
