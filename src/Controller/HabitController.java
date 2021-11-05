@@ -9,6 +9,7 @@ import Model.Habit;
 import Model.HabitList;
 import Model.HabitTableModel;
 import Model.Journal;
+import View.HabitDetailUI;
 import View.HabitMainUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +25,8 @@ public class HabitController
     HabitList habitMain = new HabitList();
     ArrayList<Habit> habitArrayList;
     HabitMainUI habitUI;
+    HabitDetailUI habitDetailUI;
+    int selectedRow;
 
     public HabitController()
     {
@@ -31,7 +34,10 @@ public class HabitController
         habitTable = new HabitTableModel(habitArrayList);        
         habitUI = new HabitMainUI(this);
         habitUI.setVisible(true);
+        habitDetailUI = new HabitDetailUI();
+        habitDetailUI.setVisible(false);
         mainButtons();
+        detailButtons();
         
     }
     
@@ -51,6 +57,21 @@ public class HabitController
                 int selectedModelRow = habitUI.getHabitTable().convertRowIndexToModel(selectedTableRow);
                 habitArrayList.remove(selectedModelRow);
                 habitUI.repaint();
+            }
+
+        });
+         habitUI.editButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                int selectedTableRow = habitUI.getHabitTable().getSelectedRow();
+                selectedRow = habitUI.getHabitTable().convertRowIndexToModel(selectedTableRow);
+                Habit selectedHabit = habitArrayList.get(selectedRow);
+                habitDetailUI = new HabitDetailUI(selectedHabit);
+                habitDetailUI.setVisible(true);
+                habitUI.setVisible(false);
+                detailButtons();
             }
 
         });
@@ -96,6 +117,35 @@ public class HabitController
                 }
                 habitArrayList.get(selectedModelRow).addCheckIn(month, day, year, check);
                 habitUI.repaint();
+            }
+            
+        });
+    }
+
+    private void detailButtons()
+    {
+        habitDetailUI.backBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                habitDetailUI.setVisible(false);
+                habitUI.repaint();
+                habitUI.setVisible(true);
+            }
+            
+        });
+        
+        habitDetailUI.updateBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String name = habitDetailUI.nameBox.getText();
+                String description = habitDetailUI.descriptionBox.getText();
+                
+                habitArrayList.get(selectedRow).setHabitName(name);
+                habitArrayList.get(selectedRow).setDescription(description);
             }
             
         });
