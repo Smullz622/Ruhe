@@ -6,6 +6,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -15,30 +16,31 @@ import java.util.ArrayList;
 public class Habit {
     private String habitName;
     private String description;
-    private ArrayList<CheckIn> checks;
+    private HashMap<String, CheckIn> checks;
     private int successPercent;
 
 
     public Habit(String habitName, String description){
         this.habitName = habitName;
         this.description = description;
-        this.checks = new ArrayList<>();
+        this.checks = new HashMap<>();
         this.successPercent = 0;
 
     }
     public Habit(){
         habitName = "New Habit";
         description = "Select and click edit to change";
-        checks = new ArrayList<>();
+        checks = new HashMap<>();
         successPercent = 0;
     }
 
     public void addCheckIn(int month, int day, int year, boolean completed){
-        checks.add(new CheckIn(month, day, year, completed));
+        CheckIn newCheck = new CheckIn(month, day, year, completed);
+        checks.put(newCheck.getDate(), newCheck);
         int percentage = calculateSuccess();
         }
 
-    public ArrayList createTestList(){
+    public void createTestList(){
         CheckIn ck0 = new CheckIn(10, 1, 2021, true);
         CheckIn ck1 = new CheckIn(10, 2, 2021, true);
         CheckIn ck2 = new CheckIn(10, 3, 2021, true);
@@ -49,31 +51,38 @@ public class Habit {
         CheckIn ck7 = new CheckIn(10, 8, 2021, false);
         CheckIn ck8 = new CheckIn(10, 9, 2021, true);
         CheckIn ck9 = new CheckIn(10, 10, 2021, true);
-        getChecks().add(ck0);
-        getChecks().add(ck1);
-        getChecks().add(ck2);
-        getChecks().add(ck3);
-        getChecks().add(ck4);
-        getChecks().add(ck5);
-        getChecks().add(ck6);
-        getChecks().add(ck7);
-        getChecks().add(ck8);
-        getChecks().add(ck9);
-        return getChecks();
+        getChecks().put(ck0.getDate(), ck0);
+        getChecks().put(ck1.getDate(), ck1);
+        getChecks().put(ck2.getDate(), ck2);
+        getChecks().put(ck3.getDate(), ck3);
+        getChecks().put(ck4.getDate(), ck4);
+        getChecks().put(ck5.getDate(), ck5);
+        getChecks().put(ck6.getDate(), ck6);
+        getChecks().put(ck7.getDate(), ck7);
+        getChecks().put(ck8.getDate(), ck8);
+        getChecks().put(ck9.getDate(), ck9);
+        calculateSuccess();
     }
 
 
-    int i = 0;
+//    int i = 0;
     public int calculateSuccess(){
-        int total = getChecks().size();
+        int total = checks.size();
         int complete = 0;
-        for (int i = 0; i<checks.size(); ++i)
+        for (CheckIn value : checks.values())
         {
-            if (checks.get(i).isCompleted()==true)
+            if (value.isCompleted() == true)
             {
                 complete += 1;
             }
         }
+//        for (int i = 0; i<checks.size(); ++i)
+//        {
+//            if (checks.get(i).isCompleted()==true)
+//            {
+//                complete += 1;
+//            }
+//        }
         successPercent = complete*100/total;
         return getSuccessPercent();
 
@@ -110,14 +119,14 @@ public class Habit {
     /**
      * @return the checks
      */
-    public ArrayList<CheckIn> getChecks() {
+    public HashMap<String, CheckIn> getChecks() {
         return checks;
     }
 
     /**
      * @param checks the checks to set
      */
-    public void setChecks(ArrayList<CheckIn> checks) {
+    public void setChecks(HashMap<String, CheckIn> checks) {
         this.checks = checks;
     }
 
@@ -138,7 +147,7 @@ public class Habit {
     @Override
     public String toString()
     {
-        return "Habit{" + "habitName=" + habitName + ", description=" + description + ", checks=" + checks + ", successPercent=" + successPercent + ", i=" + i + '}';
+        return "Habit{" + "habitName=" + habitName + ", description=" + description + ", checks=" + checks + ", successPercent=" + successPercent + '}';
     }
 
 
