@@ -138,8 +138,8 @@ public class MainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton habitBtn;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton sleepBtn;
-    private javax.swing.JButton moodBtn;
+    public javax.swing.JButton sleepBtn;
+    public javax.swing.JButton moodBtn;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JButton journalBtn;

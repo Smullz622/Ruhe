@@ -116,8 +116,8 @@ public class MainCtrl //implements Initializable
             }
             
         });
-       
-
+        
+      
     }
      public JournalController getJournalCtrl()
         {
