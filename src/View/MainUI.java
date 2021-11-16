@@ -34,9 +34,9 @@ public class MainUI extends javax.swing.JFrame {
         jColorChooser1 = new javax.swing.JColorChooser();
         jLabel1 = new javax.swing.JLabel();
         journalBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        habitBtn = new javax.swing.JButton();
+        sleepBtn = new javax.swing.JButton();
+        moodBtn = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -50,11 +50,11 @@ public class MainUI extends javax.swing.JFrame {
 
         journalBtn.setText("Journal");
 
-        jButton2.setText("Habits");
+        habitBtn.setText("Habits");
 
-        jButton4.setText("Sleep Tracking");
+        sleepBtn.setText("Sleep Tracking");
 
-        jButton5.setText("Mood");
+        moodBtn.setText("Mood");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,18 +66,18 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(journalBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(habitBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(sleepBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
+                        .addComponent(moodBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2, jButton4, jButton5, journalBtn});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {habitBtn, sleepBtn, moodBtn, journalBtn});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,13 +87,13 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(journalBtn)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(habitBtn)
+                    .addComponent(sleepBtn)
+                    .addComponent(moodBtn))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2, jButton4, jButton5, journalBtn});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {habitBtn, sleepBtn, moodBtn, journalBtn});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,10 +136,10 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton habitBtn;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    public javax.swing.JButton sleepBtn;
+    public javax.swing.JButton moodBtn;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JButton journalBtn;

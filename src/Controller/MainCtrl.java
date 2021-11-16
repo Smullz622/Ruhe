@@ -33,6 +33,7 @@ public class MainCtrl //implements Initializable
 
     MainUI homepage;
     JournalController journalCtrl;
+    HabitController habitCtrl;
 //    @FXML
 //    private Button sleepBtn;
 //    @FXML
@@ -81,6 +82,7 @@ public class MainCtrl //implements Initializable
                     }
 
                 });
+                
 //               journalCtrl.entryUI.homeBtn.addActionListener(new ActionListener()
 //               {
 //                   @Override
@@ -94,8 +96,28 @@ public class MainCtrl //implements Initializable
 
             }
         });
-       
+        homepage.habitBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                habitCtrl = new HabitController();
+                homepage.setVisible(false);
+                habitCtrl.habitUI.homeButton.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {                        
+                        habitCtrl.habitUI.setVisible(false);
+                        homepage.setVisible(true);           
+                    }
 
+                });
+            }
+            
+        });
+        
+      
     }
      public JournalController getJournalCtrl()
         {
