@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author conne
  */
 public class MoodColorList {
-    private ArrayList<MoodColor> colorList;
+    private ArrayList<MoodColor> colorList = new ArrayList<>();
 
     public MoodColorList(ArrayList<MoodColor> colorList, int currentIndex){
         this.colorList = new ArrayList<>();

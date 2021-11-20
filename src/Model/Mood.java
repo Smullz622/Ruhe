@@ -21,8 +21,9 @@ public class Mood implements DateConversionInterface{
         this.year = year;
         this.date = dateToString(day, month, year);
         this.inputColor = inputColor;
-        convertIntToColor(inputColor);
         this.colorOptions = new MoodColorList();
+        convertIntToColor(inputColor);
+        
     }
 
     public MoodColor getColor() {

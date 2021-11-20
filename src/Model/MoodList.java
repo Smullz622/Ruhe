@@ -20,6 +20,7 @@ public class MoodList {
 
     }
     public MoodList(){
+        moodList = new ArrayList<>();
         testMoodList();
     }
 
