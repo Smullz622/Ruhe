@@ -9,10 +9,12 @@ import Model.Mood;
 import Model.MoodColor;
 import Model.MoodColorList;
 import Model.MoodList;
+import View.MoodChart;
 import View.MoodUI;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -25,8 +27,10 @@ public class MoodCtrl
     MoodColorList colorList;
     MoodList moodListModel;
     ArrayList<Mood> moodList;
-    MoodUI chart;
+    MoodChart chart;
+    MoodUI moodUI;
     int[] degreeArray;
+    JPanel centerPanel, northPanel, southPanel;
 
     public MoodCtrl()
     {
@@ -34,22 +38,24 @@ public class MoodCtrl
         moodList = moodListModel.getMoodList();
         
         createMoodArray();
-        createChart(degreeArray);
+        
+        moodUI = new MoodUI(degreeArray);
+        moodUI.setVisible(true);
     }
     
-    public void createChart(int[] degreeArray){
-        JFrame f = new JFrame("Piechart");
-        chart = new MoodUI(degreeArray);
-
-        f.add(chart);
-        chart.setPreferredSize(new Dimension(400, 400));
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        f.repaint();
-    }
+//    public void createChart(int[] degreeArray){
+//        JFrame f = new JFrame("Piechart");
+//        chart = new MoodUI(degreeArray);
+//
+//        f.add(chart);
+//        chart.setPreferredSize(new Dimension(400, 400));
+//        f.pack();
+//        f.setLocationRelativeTo(null);
+//        f.setVisible(true);
+//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        f.repaint();
+//    }
 
     private void createMoodArray()
     {

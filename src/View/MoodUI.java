@@ -5,51 +5,95 @@
  */
 package View;
 
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
- 
+import javax.swing.JSpinner;
 
-public class MoodUI extends JPanel
+/**
+ *
+ * @author Sarah
+ */
+public class MoodUI extends JFrame
 {
 
-    int value[];
-    int start = 0;
+    MoodChart chart;
+    JPanel chartPanel, northPanel, addMoodPanel;
+    JButton homeBtn, addBtn;
+    public JSpinner monthSpinner, daySpinner, yearSpinner;
+    private JLabel header, date, spacer1, spacer2, spacer3, spacer4, spacer5;
+    int[] degreeArray;
+  //  JFrame f = new JFrame("Piechart");
 
-    Color[] colors =
+    public MoodUI(int[] degreeArray)
     {
-        Color.red, Color.blue, Color.yellow
-    };
-
-    public MoodUI(int[] args)
-    {
-        value = args;
-
+        this.degreeArray = degreeArray;
+        setSpinners();
+    //    createChart();
+        initComponents();
     }
 
-    public void paintComponent(Graphics g)
+//    public void createChart()
+//    {
+//        //   JFrame f = new JFrame("Piechart");
+//        chart = new MoodChart(degreeArray);
+//
+//        //  f.add(chart);
+//       // chart.setPreferredSize(new Dimension(400, 400));
+////        f.pack();
+////        f.setLocationRelativeTo(null);
+////        f.setVisible(true);
+////        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+////
+////        f.repaint();
+//    }
+
+    private void initComponents()
     {
-        super.paintComponent(g);
-        if (value == null)
-        {
-            return;
-        }
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        for (int i = 0; i < value.length; i++)
-        {
-            g2d.setColor(colors[i % colors.length]);
-            g2d.fillArc(150, 150, 200, 200, start, value[i]);
-            start = start + value[i];
-        }
+        chart = new MoodChart(degreeArray);
+        chartPanel = new JPanel();
+        northPanel = new JPanel();
+        addMoodPanel = new JPanel();
+        homeBtn = new JButton();
+        homeBtn.setText("Home");
+        northPanel.add(homeBtn);
+        addBtn = new JButton();
+        addBtn.setText("Add Mood");
+        date = new JLabel();
+        date.setText("Date (mm/dd/yyyy):");
+        addMoodPanel.add(date);
+        addMoodPanel.add(monthSpinner);
+        addMoodPanel.add(daySpinner);
+        addMoodPanel.add(yearSpinner);
+        addMoodPanel.add(addBtn);
+
+        this.setSize(500, 550);
+        this.setLocationRelativeTo(null);
+        this.setContentPane(new JPanel(new BorderLayout()));
+        this.getContentPane().add(chart, BorderLayout.CENTER);
+      //  f.add(chart);
+        this.getContentPane().add(northPanel, BorderLayout.NORTH);
+        this.getContentPane().add(addMoodPanel, BorderLayout.SOUTH);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private void setSpinners()
+    {
+        daySpinner = new JSpinner();
+        monthSpinner = new JSpinner();
+        yearSpinner = new JSpinner();
+        daySpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        yearSpinner.setModel(new javax.swing.SpinnerNumberModel(2021, 1920, 2021, 1));
+        monthSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        JSpinner.NumberEditor yearEditor = new JSpinner.NumberEditor(yearSpinner, "#");
+        JSpinner.NumberEditor monthEditor = new JSpinner.NumberEditor(monthSpinner, "#");
+        JSpinner.NumberEditor dayEditor = new JSpinner.NumberEditor(daySpinner, "#");
+        daySpinner.setEditor(dayEditor);
+        yearSpinner.setEditor(yearEditor);
+        monthSpinner.setEditor(monthEditor);
 
     }
-    
-
 }
