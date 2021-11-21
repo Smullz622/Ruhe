@@ -12,6 +12,8 @@ import Model.MoodList;
 import View.MoodChart;
 import View.MoodUI;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,10 +38,11 @@ public class MoodCtrl
     {
         moodListModel = new MoodList();
         moodList = moodListModel.getMoodList();
-        
+              
         createMoodArray();
         
         moodUI = new MoodUI(degreeArray);
+        addButtons();
         moodUI.setVisible(true);
     }
     
@@ -91,10 +94,43 @@ public class MoodCtrl
         degreeArray = new int[]{redDegree, blueDegree, yellowDegree};
         
     }
+
+    private void addButtons()
+    {
+        moodUI.addBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                int month = (int) moodUI.monthSpinner.getValue();
+                int day = (int) moodUI.daySpinner.getValue();
+                int year = (int) moodUI.yearSpinner.getValue();
+                int inputColor = moodUI.moodBox.getSelectedIndex();
+                
+                moodList.add(new Mood(month, day, year, inputColor));
+                createMoodArray();
+                chart = new MoodChart(degreeArray);
+                moodUI.setChart(degreeArray);
+                moodUI.repaint();                
+                System.out.println(moodList.toString());
+                for (int i = 0; i < degreeArray.length; i++)
+                {
+                    System.out.print(" controller array" +degreeArray[i] + " ");
+                    System.out.print(" moodUI array "+ moodUI.getDegreeArray()[i]);
+                }
+                
+                
+                
+            }
+            
+        });
+    }
     
     
 }
 
-//things to do:
-//add pie chart to a panel instead of the frame
-//creat other panels with buttons (copy habit panels)
+/*Sunday to do:
+X add functinality to home button (via main controller)
+-add functionality to add button (make sure to repaint pie chart)
+    -test ability to update by commenting out most of sample data (makes it easier to see changes)
+*/

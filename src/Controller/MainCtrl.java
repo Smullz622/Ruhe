@@ -70,7 +70,12 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (journalCtrl == null){
                 journalCtrl = new JournalController();
+                }
+                else{
+                    journalCtrl.mainUI.setVisible(true);
+                }
                 homepage.setVisible(false);
     
                 journalCtrl.mainUI.homeButton.addActionListener(new ActionListener()
@@ -90,7 +95,12 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (habitCtrl == null){
                 habitCtrl = new HabitController();
+                }
+                else{
+                    habitCtrl.habitUI.setVisible(true);
+                }                    
                 homepage.setVisible(false);
                 habitCtrl.habitUI.homeButton.addActionListener(new ActionListener()
                 {
@@ -111,8 +121,24 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                moodCtrl = new MoodCtrl();
+                if (moodCtrl == null)
+                {
+                    moodCtrl = new MoodCtrl();
+                }
+                else{
+                    moodCtrl.moodUI.setVisible(true);
+                }
                 homepage.setVisible(false);
+                moodCtrl.moodUI.homeBtn.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {
+                         moodCtrl.moodUI.setVisible(false);
+                         homepage.setVisible(true);
+                    }
+                    
+                });
             }
             
         }

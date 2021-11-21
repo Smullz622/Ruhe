@@ -13,13 +13,14 @@ import java.awt.RenderingHints;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
- 
 
 public class MoodChart extends JPanel
 {
 
     int value[];
     int start = 0;
+    Graphics2D g2d;
+    Graphics g;
 
     Color[] colors =
     {
@@ -32,8 +33,10 @@ public class MoodChart extends JPanel
 
     }
 
+    @Override
     public void paintComponent(Graphics g)
     {
+        this.g = g;
         super.paintComponent(g);
         if (value == null)
         {
@@ -50,6 +53,24 @@ public class MoodChart extends JPanel
         }
 
     }
+
+    public void setValue(int[] args)
+    {
+        value = args; 
+        repaint();
+    }
     
-  
+    public void refresh(int[] args)
+    {
+        value = args;
+        start = 0;
+        
+        for (int i = 0; i < value.length; i++)
+        {
+            g2d.setColor(colors[i % colors.length]);
+            g2d.fillArc(150, 150, 200, 200, start, value[i]);
+            start = start + value[i];
+        }
+    }
+
 }

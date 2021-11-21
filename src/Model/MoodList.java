@@ -89,4 +89,17 @@ public class MoodList {
     public ArrayList<Mood> getMoodList() {
         return moodList;
     }
+
+    @Override
+    public String toString()
+    {
+        String message = "";
+        for (int i =0; i< moodList.size(); i++)
+        {
+            message += moodList.get(i).toString();
+            message += "\n";
+        }
+        return message;
+    }
+    
 }
