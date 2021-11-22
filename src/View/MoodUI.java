@@ -142,12 +142,6 @@ public class MoodUI extends JFrame
 
     }
 
-    /*Sunday to do:
-    X add title to header, use spacers if necessary to fix button position (add gridlayout with initializing panel)
-    X add labels for colors in pie chart
-    X add label "Mood: " and combo box with mood options to add mood panel
-        X fix sizing issue with south panel, consider adding to centerpanel?
-     */
     public MoodChart getChart()
     {
         return chart;
@@ -155,11 +149,9 @@ public class MoodUI extends JFrame
 
     public void setChart(int[] degreeArray)
     {
-        
         this.degreeArray = degreeArray;
-     //   chart = new MoodChart(degreeArray);
-     chart.setValue(degreeArray);
-     repaint();
+        chart.setValue(degreeArray);
+        repaint();
     }
 
     public int[] getDegreeArray()

@@ -111,14 +111,14 @@ public class MoodCtrl
                 createMoodArray();
                 chart = new MoodChart(degreeArray);
                 moodUI.setChart(degreeArray);
-                moodUI.repaint();                
-                System.out.println(moodList.toString());
-                for (int i = 0; i < degreeArray.length; i++)
-                {
-                    System.out.print(" controller array" +degreeArray[i] + " ");
-                    System.out.print(" moodUI array "+ moodUI.getDegreeArray()[i]);
-                }
-                
+                moodUI.repaint();    
+                //test data entry
+//                System.out.println(moodList.toString());
+//                for (int i = 0; i < degreeArray.length; i++)
+//                {
+//                    System.out.print(" controller array" +degreeArray[i] + " ");
+//                    System.out.print(" moodUI array "+ moodUI.getDegreeArray()[i]);
+//                }            
                 
                 
             }
@@ -128,9 +128,3 @@ public class MoodCtrl
     
     
 }
-
-/*Sunday to do:
-X add functinality to home button (via main controller)
--add functionality to add button (make sure to repaint pie chart)
-    -test ability to update by commenting out most of sample data (makes it easier to see changes)
-*/
