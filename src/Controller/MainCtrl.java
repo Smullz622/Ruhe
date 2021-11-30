@@ -34,6 +34,7 @@ public class MainCtrl //implements Initializable
     MainUI homepage;
     JournalController journalCtrl;
     HabitController habitCtrl;
+    MoodCtrl moodCtrl;
 //    @FXML
 //    private Button sleepBtn;
 //    @FXML
@@ -69,7 +70,12 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (journalCtrl == null){
                 journalCtrl = new JournalController();
+                }
+                else{
+                    journalCtrl.mainUI.setVisible(true);
+                }
                 homepage.setVisible(false);
     
                 journalCtrl.mainUI.homeButton.addActionListener(new ActionListener()
@@ -82,18 +88,6 @@ public class MainCtrl //implements Initializable
                     }
 
                 });
-                
-//               journalCtrl.entryUI.homeBtn.addActionListener(new ActionListener()
-//               {
-//                   @Override
-//                   public void actionPerformed(ActionEvent e)
-//                   {
-//                       journalCtrl.entryUI.setVisible(false);
-//                       homepage.setVisible(true);
-//                   }
-//                   
-//               });
-
             }
         });
         homepage.habitBtn.addActionListener(new ActionListener()
@@ -101,7 +95,12 @@ public class MainCtrl //implements Initializable
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (habitCtrl == null){
                 habitCtrl = new HabitController();
+                }
+                else{
+                    habitCtrl.habitUI.setVisible(true);
+                }                    
                 homepage.setVisible(false);
                 habitCtrl.habitUI.homeButton.addActionListener(new ActionListener()
                 {
@@ -117,6 +116,33 @@ public class MainCtrl //implements Initializable
             
         });
         
+        homepage.moodBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (moodCtrl == null)
+                {
+                    moodCtrl = new MoodCtrl();
+                }
+                else{
+                    moodCtrl.moodUI.setVisible(true);
+                }
+                homepage.setVisible(false);
+                moodCtrl.moodUI.homeBtn.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {
+                         moodCtrl.moodUI.setVisible(false);
+                         homepage.setVisible(true);
+                    }
+                    
+                });
+            }
+            
+        }
+        );
       
     }
      public JournalController getJournalCtrl()

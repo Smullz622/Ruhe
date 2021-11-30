@@ -68,9 +68,9 @@ public class MainUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(habitBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sleepBtn)
+                        .addComponent(moodBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(moodBtn))
+                        .addComponent(sleepBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)))
@@ -88,8 +88,8 @@ public class MainUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(journalBtn)
                     .addComponent(habitBtn)
-                    .addComponent(sleepBtn)
-                    .addComponent(moodBtn))
+                    .addComponent(moodBtn)
+                    .addComponent(sleepBtn))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
 
