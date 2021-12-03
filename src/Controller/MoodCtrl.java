@@ -107,7 +107,8 @@ public class MoodCtrl
                 int year = (int) moodUI.yearSpinner.getValue();
                 int inputColor = moodUI.moodBox.getSelectedIndex();
                 
-                moodList.add(new Mood(month, day, year, inputColor));
+                moodListModel.addMood(month, day, year, inputColor);
+              //  moodList.add(new Mood(month, day, year, inputColor));
                 createMoodArray();
                 chart = new MoodChart(degreeArray);
                 moodUI.setChart(degreeArray);

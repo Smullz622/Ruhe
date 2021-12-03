@@ -72,7 +72,7 @@ public class SleepListTest
     {
         System.out.println("editSleep");
         int index = 0;
-        Sleep sleep = new Sleep("2021/09/18", 7, 0);
+        Sleep sleep = new Sleep(9, 13, 2021, 7, 0);
         SleepList instance = new SleepList();
         instance.editItem(index, sleep);
         Sleep expResult = sleep;

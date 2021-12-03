@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conne
  */
-public class Journal implements DateConversionInterface{
+public class Journal implements DateConversionInterface, Serializable{
     private int month, day, year;
     private String date, description;
         

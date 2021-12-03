@@ -5,6 +5,12 @@
  */
 package Model;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +19,7 @@ import java.util.ArrayList;
  */
 public class MoodList {
     private ArrayList<Mood> moodList;
+    private String moodFileName = "moodFile.ser";
 
 
     public MoodList(ArrayList<Mood> moodList){
@@ -21,20 +28,67 @@ public class MoodList {
     }
     public MoodList(){
         moodList = new ArrayList<>();
-        testMoodList();
+        readMoodListFile();
+        if(moodList.isEmpty() || moodList == null){
+            testMoodList();
+            writeMoodListFile();
+            readMoodListFile();
+        }
+        printMoodList();
     }
+    public void readMoodListFile(){
+        FileInputStream fis = null;
+        ObjectInputStream in = null;
+        try{
+            fis = new FileInputStream(moodFileName);
+            in = new ObjectInputStream(fis);
+            moodList = (ArrayList)in.readObject();
+            in.close();
+            if(!moodList.isEmpty()){
+                System.out.println("There are moods in the file");
+            }
+        }catch(FileNotFoundException fne){
+            System.out.println("File not found");
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void writeMoodListFile(){
+        FileOutputStream fos = null;
+        ObjectOutputStream out = null;
+        try{
+            fos = new FileOutputStream(moodFileName);
+            out = new ObjectOutputStream(fos);
+            out.writeObject(moodList);
+            out.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void printMoodList(){
+        System.out.println("These are the moods in the list: ");
+        for(int i = 0; i<moodList.size(); i++){
+            System.out.println(moodList.get(i).toString());
+        }
+    }
+
 
     public void addMood(int month, int day, int year, int inputColor){
         Mood m = new Mood(month, day, year, inputColor);
         moodList.add(m);
+        writeMoodListFile();
     }
     public void editMood(int currentIndex, int month, int day, int year, int inputColor){
         moodList.set(currentIndex, new Mood(month, day, year, inputColor));
+        writeMoodListFile();
 
     }
     public void deleteMood(int currentIndex){
         Mood m = getMoodList().get(currentIndex);
         moodList.remove(m);
+        writeMoodListFile();
     }
     public ArrayList testMoodList(){
         Mood m0 = new Mood(9, 1, 2021, 1);

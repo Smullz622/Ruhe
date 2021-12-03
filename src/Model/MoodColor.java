@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conne
  */
-public class MoodColor {
+public class MoodColor implements Serializable {
     private String color, moodName, description;
 
     public MoodColor(String color, String moodName, String description){

@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package Model;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 
@@ -13,9 +19,53 @@ import java.util.ArrayList;
  */
 public class JournalMain {
     private ArrayList<Journal> theJournalList = new ArrayList<>();
-    
+    private String journalFileName = "journalFile.ser";
+
     public JournalMain(){
-        createTestArray();
+        readJournalFile();
+        if(theJournalList.isEmpty() || theJournalList == null){
+            createTestArray();
+            writeJournalFile();
+            readJournalFile();
+        }
+        printJournalList();
+    }
+    public void readJournalFile(){
+        FileInputStream fis = null;
+        ObjectInputStream in = null;
+        try{
+            fis = new FileInputStream(journalFileName);
+            in = new ObjectInputStream(fis);
+            theJournalList = (ArrayList)in.readObject();
+            in.close();
+            if(!theJournalList.isEmpty()){
+                System.out.println("There are entries in the file");
+            }
+        }catch(FileNotFoundException fne){
+            System.out.println("File not found");
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void writeJournalFile(){
+        FileOutputStream fos = null;
+        ObjectOutputStream out = null;
+        try{
+            fos = new FileOutputStream(journalFileName);
+            out = new ObjectOutputStream(fos);
+            out.writeObject(theJournalList);
+            out.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void printJournalList(){
+        System.out.println("These are the entries in the list: ");
+        for(int i = 0; i<theJournalList.size(); i++){
+            System.out.println(theJournalList.get(i).toString());
+        }
     }
 
     public ArrayList createTestArray(){

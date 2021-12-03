@@ -40,7 +40,7 @@ public class SleepTest
         System.out.println("convertTime");
         int sleepHours = 2;
         int sleepMinutes = 30;
-        Sleep instance = new Sleep("2021/09/18", 2, 30);
+        Sleep instance = new Sleep(9, 18, 2021, 2, 30);
         int expResult = 150;
         int result = instance.convertTime(sleepHours, sleepMinutes);
         assertEquals(expResult, result);
@@ -55,7 +55,7 @@ public class SleepTest
     public void testGetTotalTime()
     {
         System.out.println("getTotalTime");
-        Sleep instance = new Sleep("2021/09/18", 1, 30);
+        Sleep instance = new Sleep(9, 18, 2021, 1, 30);
         int expResult = 90;
         int result = instance.getTotalTime();
         assertEquals(expResult, result);
@@ -72,7 +72,7 @@ public class SleepTest
         System.out.println("setTotalTime");
         int hours = 1;
         int minutes = 30;
-        Sleep instance = new Sleep("2021/09/18", 0, 0);
+        Sleep instance = new Sleep(9, 18, 2021, 0, 0);
         instance.setTotalTime(hours, minutes);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -84,7 +84,7 @@ public class SleepTest
     public void testToString()
     {
         System.out.println("toString");
-        Sleep instance = new Sleep("2021/09/18", 1, 30);
+        Sleep instance = new Sleep(9, 18, 2021, 1, 30);
         String expResult = "date = 2021/09/18, hours = 1, minutes = 30, total time = 90";
         String result = instance.toString();
         assertEquals(expResult, result);

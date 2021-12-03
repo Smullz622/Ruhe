@@ -101,6 +101,7 @@ public class JournalController
                 int selectedTableRow = mainUI.getJournalTable().getSelectedRow();
                 int selectedModelRow = mainUI.getJournalTable().convertRowIndexToModel(selectedTableRow);
                 journalArrayList.remove(selectedModelRow);
+                journalMain.writeJournalFile();
                 mainUI.repaint();
             }
 
@@ -126,6 +127,7 @@ public class JournalController
             {
                 journalArrayList.add(new Journal());
                 mainUI.repaint();
+                journalMain.writeJournalFile();
             }
 
         });
@@ -175,6 +177,7 @@ public class JournalController
                 journalArrayList.get(selectedRow).setDescription(entryUI.entryBox.getText());
                 journalTable.setTable(journalArrayList);
                 mainUI.repaint();
+                journalMain.writeJournalFile();
             }
 
         });        

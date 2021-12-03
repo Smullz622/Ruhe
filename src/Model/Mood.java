@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conne
  */
-public class Mood implements DateConversionInterface{
+public class Mood implements DateConversionInterface, Serializable{
     private int month, day, year, inputColor;
     private String date;
     private MoodColorList colorOptions;
