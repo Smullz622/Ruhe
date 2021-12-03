@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
  *
  * @author Sarah
  */
-public abstract class User
+public abstract class User implements Serializable
 {
 
     String firstName;

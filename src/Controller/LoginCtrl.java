@@ -126,6 +126,7 @@ public class LoginCtrl
                 else{
                     login.getValidUsers().put(username, newUser);
                     userUI.getConfirmationMsg().setText("Account created successfully");
+                    login.writeLoginListFile();
                 }
             }            
             
