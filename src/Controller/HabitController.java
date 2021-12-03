@@ -57,6 +57,7 @@ public class HabitController
                 int selectedModelRow = habitUI.getHabitTable().convertRowIndexToModel(selectedTableRow);
                 habitArrayList.remove(selectedModelRow);
                 habitUI.repaint();
+           //     habitMain.writeHabitFile();
             }
 
         });
@@ -96,6 +97,7 @@ public class HabitController
             {
                 habitArrayList.add(new Habit());
                 habitUI.repaint();
+               // habitMain.writeHabitFile();
             }
 
         });
@@ -146,6 +148,7 @@ public class HabitController
                 
                 habitArrayList.get(selectedRow).setHabitName(name);
                 habitArrayList.get(selectedRow).setDescription(description);
+               // habitMain.writeHabitFile();
             }
             
         });

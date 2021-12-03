@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,7 +14,7 @@ import java.util.HashMap;
  *
  * @author conne
  */
-public class Habit {
+public class Habit implements Serializable{
     private String habitName;
     private String description;
     private HashMap<String, CheckIn> checks;

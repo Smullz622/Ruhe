@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conne
  */
-public class CheckIn implements DateConversionInterface {
+public class CheckIn implements DateConversionInterface, Serializable {
     private int day, month, year;
     private String date;
     private boolean completed;
