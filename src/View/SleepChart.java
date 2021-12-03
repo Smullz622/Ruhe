@@ -20,15 +20,22 @@ import javax.swing.SwingUtilities;
 
 public class SleepChart {
     private JFrame frame;
+    private int[] yCoords;
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new SleepChart()::createAndShowGui);
+       // SwingUtilities.invokeLater(new SleepChart()::createAndShowGui);          
+    }
+    
+    public SleepChart(int [] args)
+    {
+        yCoords = args;
+        createAndShowGui();
     }
 
     private void createAndShowGui() {
         frame = new JFrame(getClass().getSimpleName());
 
-        GraphDrawer drawer = new GraphDrawer(new int[] {0, 3, 4, 7, 5, 10, 3});
+        GraphDrawer drawer = new GraphDrawer(yCoords);
 
         frame.add(drawer);
         frame.pack();
@@ -58,7 +65,7 @@ public class SleepChart {
             Graphics2D g2d = (Graphics2D) g;
 
             //We draw in the following 2 loops the grid so it's visible what I explained before about each "unit"
-            g2d.setColor(Color.BLUE);
+            g2d.setColor(Color.LIGHT_GRAY);
             for (int i = startX; i <= endX; i += unitX) {
                 g2d.drawLine(i, startY, i, endY);
             }

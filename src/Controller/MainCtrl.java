@@ -35,6 +35,7 @@ public class MainCtrl //implements Initializable
     JournalController journalCtrl;
     HabitController habitCtrl;
     MoodCtrl moodCtrl;
+    SleepController sleepCtrl;
 //    @FXML
 //    private Button sleepBtn;
 //    @FXML
@@ -143,6 +144,32 @@ public class MainCtrl //implements Initializable
             
         }
         );
+        
+        homepage.sleepBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (sleepCtrl == null){
+                sleepCtrl = new SleepController();
+                }
+//                else{
+//                    habitCtrl.habitUI.setVisible(true);
+//                }                    
+                homepage.setVisible(false);
+//                habitCtrl.habitUI.homeButton.addActionListener(new ActionListener()
+//                {
+//                    @Override
+//                    public void actionPerformed(ActionEvent e)
+//                    {                        
+//                        habitCtrl.habitUI.setVisible(false);
+//                        homepage.setVisible(true);           
+//                    }
+//
+//                });
+            }
+            
+        });
       
     }
      public JournalController getJournalCtrl()
