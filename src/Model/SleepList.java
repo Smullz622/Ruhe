@@ -22,6 +22,7 @@ public class SleepList implements CollectionInterface<Sleep>
     private ArrayList<Sleep> sleepList;
     private int currentIndex;
     private String sleepFileName = "sleepFile.ser";
+    private int[] sleepTimes;
 
     public SleepList()
     {
@@ -77,7 +78,7 @@ public class SleepList implements CollectionInterface<Sleep>
 
     public void createTestList(){
         Sleep s0 = new Sleep(11,24,2021,6,45);
-        Sleep s1 = new Sleep(11,25,2021,10,30);
+        Sleep s1 = new Sleep(11,25,2021,10,20);
         Sleep s2 = new Sleep(11,26,2021,7,15);
         Sleep s3 = new Sleep(11,27,2021,7,20);
         Sleep s4 = new Sleep(11,28,2021,6,15);
@@ -127,4 +128,13 @@ public class SleepList implements CollectionInterface<Sleep>
         }
     }
 
+    public int[] getSleepTimes()
+    {
+        sleepTimes = new int [sleepList.size()];
+        for (int i = 0; i <sleepList.size(); i++)
+        {
+            sleepTimes[i] = sleepList.get(i).getTotalTime();
+        }
+        return sleepTimes;
+    }
 }

@@ -8,6 +8,9 @@ package Controller;
 import Model.Sleep;
 import Model.SleepList;
 import View.SleepChart;
+import View.SleepUI;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -20,11 +23,31 @@ public class SleepController
     SleepList sleepMain;
     ArrayList<Sleep> sleepList;
     SleepChart sleepChart;
+    SleepUI sleepUI;
+    int[] sleepTimes;
     
     public SleepController()
     {
         
-        sleepChart = new SleepChart(new int[]{6, 7, 8, 8, 6});
+        sleepMain = new SleepList();
+        sleepList = sleepMain.getSleepList();
+        sleepTimes = sleepMain.getSleepTimes();
+        sleepUI = new SleepUI(sleepTimes);
+        sleepUI.setVisible(true);
+        addButtons();
+    }
+
+    private void addButtons()
+    {
+        sleepUI.addBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("Add button clicked");
+            }
+            
+        });
     }
     
 }

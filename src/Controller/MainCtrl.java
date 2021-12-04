@@ -153,20 +153,20 @@ public class MainCtrl //implements Initializable
                 if (sleepCtrl == null){
                 sleepCtrl = new SleepController();
                 }
-//                else{
-//                    habitCtrl.habitUI.setVisible(true);
-//                }                    
+                else{
+                    sleepCtrl.sleepUI.setVisible(true);
+                }                    
                 homepage.setVisible(false);
-//                habitCtrl.habitUI.homeButton.addActionListener(new ActionListener()
-//                {
-//                    @Override
-//                    public void actionPerformed(ActionEvent e)
-//                    {                        
-//                        habitCtrl.habitUI.setVisible(false);
-//                        homepage.setVisible(true);           
-//                    }
-//
-//                });
+                sleepCtrl.sleepUI.homeBtn.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {                        
+                        sleepCtrl.sleepUI.setVisible(false);
+                        homepage.setVisible(true);           
+                    }
+
+                });
             }
             
         });

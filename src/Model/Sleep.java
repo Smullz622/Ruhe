@@ -14,7 +14,8 @@ import java.io.Serializable;
 public class Sleep implements DateConversionInterface, Serializable
 {
     private String date;
-    private int sleepHours, sleepMinutes, totalTime, month, day, year;
+    private int sleepHours, sleepMinutes, totalTime, month, day, year, hoursRounded;
+    float minsDivd;
 
     public Sleep(int month, int day, int year, int sleepHours, int sleepMinutes)
     {
@@ -25,6 +26,8 @@ public class Sleep implements DateConversionInterface, Serializable
         this.sleepHours = sleepHours;
         this.sleepMinutes = sleepMinutes;
         totalTime = convertTime(sleepHours, sleepMinutes);
+        getTotalTime();
+        
     }
 
      public Sleep()
@@ -43,7 +46,9 @@ public class Sleep implements DateConversionInterface, Serializable
 
     public int getTotalTime()
     {
-        return totalTime;
+        minsDivd = ((float) totalTime)/60;
+        hoursRounded = Math.round(minsDivd);
+        return hoursRounded;
     }
 //sets total time in minutes
     public void setTotalTime(int hours, int minutes)
@@ -60,7 +65,7 @@ public class Sleep implements DateConversionInterface, Serializable
     @Override
     public String toString()
     {
-        return "date = " + date + ", hours = " + sleepHours + ", minutes = " + sleepMinutes + ", total time = " + totalTime;
+        return "date = " + date + ", hours = " + sleepHours + ", minutes = " + sleepMinutes + ", total time = " + totalTime + ", mins Divd = " + minsDivd + ", totalHours" + hoursRounded;
     }
 
     /**
