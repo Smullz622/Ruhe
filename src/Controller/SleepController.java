@@ -44,7 +44,15 @@ public class SleepController
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("Add button clicked");
+                int month = (int) sleepUI.monthSpinner.getValue();
+                int day = (int) sleepUI.daySpinner.getValue();
+                int year = (int) sleepUI.yearSpinner.getValue();
+                int hours = (int) sleepUI.hoursSpinner.getValue();
+                int mins = (int) sleepUI.minsSpinner.getValue();
+                sleepMain.addItem(new Sleep(month, day, year, hours, mins));
+                sleepTimes = sleepMain.getSleepTimes();
+                sleepUI.setChart(sleepTimes);                
+                sleepUI.repaint();
             }
             
         });

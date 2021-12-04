@@ -79,6 +79,12 @@ public class SleepChart extends JPanel
                 g2d.drawLine(prevX, prevY, prevX += unitX, prevY = endY - (y * unitY));
             }
         }
+        public void setValue(int[] args)
+    {
+        yCoords = args; 
+        repaint();
+    }
+        
 
 //        @Override
 //        public Dimension getPreferredSize()

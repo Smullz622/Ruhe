@@ -61,7 +61,7 @@ public class SleepUI extends JFrame
                 
         addSleepPanel = new JPanel();
         addBtn = new JButton();
-        addBtn.setText("Add Mood");
+        addBtn.setText("Add Sleep");
         date = new JLabel();        
         date.setText("Date (mm/dd/yyyy):");
         sleep = new JLabel();
@@ -115,4 +115,11 @@ public class SleepUI extends JFrame
         minsSpinner.setEditor(minsEditor);
 
     }
+     public void setChart(int[] sleepTimes)
+    {
+        this.sleepTimes = sleepTimes;
+        chart.setValue(sleepTimes);
+        repaint();
+    }
 }
+
